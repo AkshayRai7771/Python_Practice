@@ -11,15 +11,15 @@ war = character("T",90,90)
 mag = character("G",80,80)
 arc = character("L",70,70)
 
-def win (a1,a2,a3):
-    if a1>a2 and a1>a3:
-        print("Mage wins")
-    elif a2>a3:
-        print("Warrior Wins")
-    else :
-        print ("Archer wins")
-mag.attack = 100
-win(mag.attack,war.attack,arc.attack)
+# def win (a1,a2,a3):
+#     if a1>a2 and a1>a3:
+#         print("Mage wins")
+#     elif a2>a3:
+#         print("Warrior Wins")
+#     else :
+#         print ("Archer wins")
+# mag.attack = 100
+# win(mag.attack,war.attack,arc.attack)
 # war = character()
 # mag = character()
 # arc = character ()
