@@ -1,4 +1,5 @@
 from collections import Counter
+from functools import reduce
 #Merging and sorting the lists 
 
 # a1 = [2,5,8,12,15]
@@ -193,13 +194,13 @@ from collections import Counter
 
 # print(inter)
 
-s="geeksforgeeks"
+# s="geeksforgeeks"
 
-m = Counter(s)
-print(m)
-for x in m:
-    if m[x]>1:
-        print(x,m[x])
+# m = Counter(s)
+# print(m)
+# for x in m:
+#     if m[x]>1:
+#         print(x,m[x])
         
 
 # n = len(s)
@@ -223,3 +224,33 @@ for x in m:
 # if count > 1:
 #     l.append((s[i],count))
 #     print (l)
+
+# def fact(num):
+#     if num == 1:
+#         return 1
+#     total = num*fact(num-1)
+#     return total
+
+# n = int(input("Enter any Number : " ))
+# factorial = fact(n)
+# print(factorial)
+
+
+#Map,reduce,filter using lambda(unnamed func)
+# n = int(input("Enter any number : "))
+# l = []
+# for i in range(0,n**2):
+#     l.append(i)
+
+# odd= list(filter(lambda x : x%2 != 0,l))
+# print(odd)
+
+# odd_to_even = list(map(lambda x : x*2 , odd))
+# print(odd_to_even)
+
+# even_to_one = list(map(lambda x : x - x +1,odd_to_even))
+# print(even_to_one)
+
+# length = reduce(lambda x,y : x+y , even_to_one)
+# print(length)
+

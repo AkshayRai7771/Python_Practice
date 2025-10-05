@@ -1,13 +1,18 @@
 from Add_Product import add_products
-from Update_Customer import new_customer
-from billing import check
+from discount import check_discount_existing_customer,discounted_price
+from Old_customer import check_existing_customer
 
-run = input("A/B/C/D")
-print("run - ", run)
+run = input("A/B/C/D: ")
 
-if run in ['A' , 'a']:
-    print("here 1 -=")
-    add_products()
-elif run in ['B' , 'b']:
-    print("inside elif")
-    check()
+match run.upper():
+    
+    case "A":
+        add_products()
+    case "B":
+        check_existing_customer()
+    case "C":
+        check_discount_existing_customer()
+    case "D":
+        discounted_price()
+    case _:
+        print("Please select the valid options ")

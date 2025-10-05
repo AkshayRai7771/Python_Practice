@@ -1,20 +1,23 @@
-def decorator(f):  # renamed to avoid conflict
-    a = int(input("Enter Number 1 : "))#values are passed 
-    b = int(input("Enter Number 2 : "))
+def original(a,b):
+    print("inside original")
+    ans = a/b
+    return ans 
 
-    def wrapper():
-        f()
-        result = a + b #operations are done 
-        return result
-    return wrapper
+def modified(func):
+    def swap(a,b):
+        if a<b:
+            print("swapping the numbers...")
+            a,b = b,a
+            print("swapping done bete ....")
+        return func(a,b)
+    return swap
 
-@decorator
-def result_is():
-    pass
+# original = modified(original)
+# ans = original(2,4)
+# print(ans)
 
-# Call the decorated function and get the return value
-final_result = result_is()
-print("The final result is:", final_result)
+@modified
+def origin(x,y):
+    return original(x,y)
 
-
-
+print(origin(2,4))

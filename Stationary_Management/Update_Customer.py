@@ -23,13 +23,12 @@ class Customer:
 
 
             
-def new_customer():
+def new_customer(x):
     connection = get_connection()
     w = input("Enter name of the Customer: ")
-    x = input("Enter Email address of Customer: ")
     y = input("Enter total amount purchased : ")
     z = 1
-    buyer = Customer(y,z,w,x)
+    buyer = Customer(y,z,customer_name=w,email_address=x)
     buyer.add_new_customer(connection)
 
 def update_customer(total,num,id):
