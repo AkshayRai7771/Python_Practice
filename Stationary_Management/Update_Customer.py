@@ -1,7 +1,7 @@
 from SQL_connx import get_connection
 
 class Customer:
-    def __init__(self,total_amount,no_of_products,customer_id=None,customer_name = None,email_address=None):
+    def __init__(self,total_amount=0,no_of_products=0,customer_id=-1,customer_name = "",email_address=""):
         self.name = customer_name
         self.email = email_address
         self.amount = total_amount
@@ -9,9 +9,10 @@ class Customer:
         self.id = customer_id
     def add_new_customer(self, connection):
         cursor = connection.cursor()
-        query =  "INSERT INTO customer_info (customer_name,email_address,total_amount,no_of_purchase) VALUES (%s,%s,%s,%s);"
-        data =  (self.name,self.email,self.amount,self.quanty)
-        cursor.execute(query,data)
+        query =  f"INSERT INTO customer_info (customer_name,email_address,total_amount,no_of_purchase) VALUES ('{self.name}','{self.email}',{self.amount},{self.quanty});"
+        print(query)
+        # data =  (self.name,self.email,self.amount,self.quanty)
+        cursor.execute(query)
         connection.commit()
     def edit_customer(self,connection):
         cursor = connection.cursor()
@@ -25,7 +26,7 @@ class Customer:
             
 def new_customer(x):
     connection = get_connection()
-    w = input("Enter name of the Customer: ")
+    w = input("Enter name of the Customer: ").capitalize()
     y = input("Enter total amount purchased : ")
     z = 1
     buyer = Customer(y,z,customer_name=w,email_address=x)

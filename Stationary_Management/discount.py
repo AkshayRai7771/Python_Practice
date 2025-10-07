@@ -1,5 +1,5 @@
 from SQL_connx import get_connection
-from datetime import datetime, timedelta
+from datetime import date, timedelta
 
 def check_discount_existing_customer():
     connection  = get_connection()
@@ -23,10 +23,10 @@ def check_discount_existing_customer():
         else : print("Customer is not eligible for special discount")
 
 def discounted_price():
-    # curr = datetime.now() - datetime.now()
+    diff = date.today() - timedelta(60)
     connection  = get_connection()
     cursor = connection.cursor()
-    query =  f"SELECT product_id FROM sm_db.products_table WHERE product_date <= 250701;"
+    query =  f"SELECT product_id FROM sm_db.products_table WHERE listing_date < '{diff}';"
     cursor.execute(query)
     res = cursor.fetchall()
     l = []
@@ -35,8 +35,11 @@ def discounted_price():
     if len(l)==0:
         print("No old products found")
     else :
-        query =  f"UPDATE sm_db.products_table SET product_price = product_price*0.8 WHERE product_id in {tuple(l)};"
-        cursor.execute(query)
-        query =  f"UPDATE sm_db.products_table SET product_date = 250901 WHERE product_date <= 250701;"
-        cursor.execute(query)
+        if len(l) == 1:
+            query =  f"UPDATE sm_db.products_table SET updated_date = '{date.today()}',product_price = product_price*0.8 WHERE product_id = {l[0]};"
+            cursor.execute(query)
+
+        else:    
+            query =  f"UPDATE sm_db.products_table SET updated_date = '{date.today()}', product_price = product_price*0.8 WHERE product_id in {tuple(l)};"
+            cursor.execute(query)
         connection.commit()

@@ -253,4 +253,14 @@ from functools import reduce
 
 # length = reduce(lambda x,y : x+y , even_to_one)
 # print(length)
-
+s = 'ABCDCDC'
+ss = 'CDC'
+count = 0
+n = len(s)
+m = len(ss)
+print(s[0:m])
+for i in range (0,n-m+1):
+    if s[i] == ss[0]:
+        if s[i:i+m] == ss:
+            print(s[i:i+m])
+            count+=1

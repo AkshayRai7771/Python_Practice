@@ -1,4 +1,5 @@
 s = "hello this 1 is string Practice code   "
+m = len(s)
 print(s.capitalize())
 print(s.casefold())
 print(s.center(5))
@@ -9,3 +10,4 @@ print(s.partition("s"))
 print(s.index("s"))
 print(s.strip())
 print(s.split("s"))
+print(s[0:])

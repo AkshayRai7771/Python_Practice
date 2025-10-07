@@ -16,7 +16,7 @@ print(l)
 l.remove(min(l))
 print(l)
 #removing element at particular index 
-l.pop(1)
+l.pop()
 print(l)
 #removing multiple
 del l[5:]
