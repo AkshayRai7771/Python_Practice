@@ -16,10 +16,13 @@ class Products:
         cursor.execute(query)
         exists = cursor.fetchone()
         if exists is None:
+        # try:
             query =  "INSERT INTO products_table (products_name,listing_date,product_price,available_quantity,sold_quantity) VALUES (%s,%s,%s,%s,%s);"
             data =  (self.name,self.date,self.price,self.quant,self.sold)
             cursor.execute(query,data)
             connection.commit()
+        # except Exception as e :
+            # print("Kindly enter valid details")
         else:
             ans = input("Product already exists do you want to update product details? Y/N ").upper()
             if ans == "Y":
@@ -89,7 +92,7 @@ class Products:
       
 def add_products():
     connection = get_connection()
-    w = input("Enter name of your product: ").capitalize()
+    w = input("Enter name of your product: ").capitalize().strip()
     x = input("Enter puchase date in(YY:MM:DD): ")
     y = input("Enter Price of product: ")
     z = input("Enter Quantity : ")

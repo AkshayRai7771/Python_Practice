@@ -1,5 +1,9 @@
 from collections import Counter
 from functools import reduce
+from datetime import datetime,timedelta,date
+import array
+from itertools import permutations
+from collections import Counter
 #Merging and sorting the lists 
 
 # a1 = [2,5,8,12,15]
@@ -253,14 +257,85 @@ from functools import reduce
 
 # length = reduce(lambda x,y : x+y , even_to_one)
 # print(length)
-s = 'ABCDCDC'
-ss = 'CDC'
-count = 0
-n = len(s)
-m = len(ss)
-print(s[0:m])
-for i in range (0,n-m+1):
-    if s[i] == ss[0]:
-        if s[i:i+m] == ss:
-            print(s[i:i+m])
-            count+=1
+# s = 'ABCDCDC'
+# ss = 'CDC'
+
+# x =s.count(ss)
+# print(x)
+# count = 0
+# n = len(s)
+# m = len(ss)
+# print(s[0:m])
+# for i in range (0,n-m+1):
+#     if s[i] == ss[0]:
+#         if s[i:i+m] == ss:
+#             print(s[i:i+m])
+#             count+=1
+# string = 'BANANA'
+# v ='AEIOU'
+# s = {}
+# k = {}
+# for i in range(0,len(string)):
+
+#     for j in range(i,len(string)):
+#         if string[i] in v:
+#             k.update({string[i:j+1]:string.count(string[i:j+1])})
+#         else :
+#             s.update({string[i:j+1]:string.count(string[i:j+1])})
+
+# print(s)
+# print(k)
+# y = z.strftime("%d-%m-%Y")
+# x = datetime.now() - timedelta(days= 30)
+# y = datetime.now().strftime("%d-%m-%Y")
+
+# date_str = "10-08-2025"
+# date_obj = datetime.strptime(date_str, "%d-%m-%Y").date()
+# print(date_obj)
+
+# formatted_string = date_obj.strftime("")
+
+# print(formatted_string)   # 08 October, 2025 10:45 PM (string)
+
+# print(y)
+
+# arr = array.array('i',[1, 3, 5, 5, 5, 5, 67, 123, 125])
+# l = []
+# x = 5
+# i = arr.index(x)
+# print(i)
+
+# s , n = input().split()
+# ss = sorted(s)
+# print(list(permutations(ss,int(n))))
+# count = 0
+# for i in permutations(ss,int(n)):
+#     count+=1
+#     print("".join(i))
+# print(count)
+arr = array.array("i",[4, 3, 6, 2, 1, 1])
+# d = {}
+# l = []
+
+# for i in range(0,len(arr)):
+#     d[i+1] = 0
+# for i in range(0,len(arr)):
+#     if arr[i] in d:
+#         if d[arr[i]] == 1:
+#             l.append(arr[i])
+#         d[arr[i]]+=1
+
+# for x in d:
+#     if d[x]==0:
+#         l.append(x)
+if len(arr)==1:
+    ans = arr[0]
+else:
+    mp = Counter(arr)
+    for x in mp:
+        if mp[x]>1:
+            ans = x 
+
+print(mp)
+
+# print(l)
