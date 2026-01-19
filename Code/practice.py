@@ -4,6 +4,8 @@ from datetime import datetime,timedelta,date
 import array
 from itertools import permutations
 from collections import Counter
+from math import gcd
+import requests
 #Merging and sorting the lists 
 
 # a1 = [2,5,8,12,15]
@@ -313,7 +315,7 @@ from collections import Counter
 #     count+=1
 #     print("".join(i))
 # print(count)
-arr = array.array("i",[4, 3, 6, 2, 1, 1])
+# arr = array.array("i",[4, 3, 6, 2, 1, 1])
 # d = {}
 # l = []
 
@@ -328,14 +330,343 @@ arr = array.array("i",[4, 3, 6, 2, 1, 1])
 # for x in d:
 #     if d[x]==0:
 #         l.append(x)
-if len(arr)==1:
-    ans = arr[0]
-else:
-    mp = Counter(arr)
-    for x in mp:
-        if mp[x]>1:
-            ans = x 
+# if len(arr)==1:
+#     ans = arr[0]
+# else:
+#     mp = Counter(arr)
+#     for x in mp:
+#         if mp[x]>1:
+#             ans = x 
 
-print(mp)
+# print(mp)
 
 # print(l)
+
+#s,n = input().split()
+#ss = sorted(s)
+
+#for i in permutations(ss,int(n)):
+  #  print("".join(i))#
+
+
+# print(len(l))
+
+# l = [90, 70, 20, 80, 50]
+# l.sort()
+# x = 90
+# bool = False
+# if len(l)<=1 or l[-1]-l[0]<x:
+#     bool = False
+
+
+# print(bool,l[-1])
+
+# arr = [1,2,3,4]
+# arr = arr[::-1]
+# print(arr)
+
+# N=4
+# Mat=[[10,20,30,40],
+# [15,25,35,45],
+# [27,29,37,48],
+# [32,33,39,50]]
+
+# l = []
+# for row in Mat:
+#     for x in row:
+#         l.append(x)
+# l.sort()
+# print(l)
+
+
+# no_of_test = int(input())
+# l = []
+# for i in range(0,no_of_test):
+#   x,y = map(int,input().split())
+#   l.append(x)
+#   l.append(y)
+
+# num = 1
+# den = 1
+# for i in range(0,len(l)):
+#   if i % 2 != 0 :
+#     den = den * l[i]
+#   else:
+#     num = num * l[i]
+    
+    
+
+# g = gcd(num,den)
+
+# num = num // g
+# den = den // g
+
+# print(num,end=" ")
+# print(den)
+
+
+# def score_words(words):
+#   score = 0
+#   for word in words:
+#       num_vowels = 0
+#       for letter in word:
+#           if letter in ['a', 'e', 'i', 'o', 'u', 'y']:
+#               num_vowels += 1
+#           print(num_vowels,"Vowels")
+#       if num_vowels % 2 == 0:
+#           score += 2
+#       else:
+#           score+=1
+#       print(score)
+#   return score
+
+
+# n = int(input())
+# words = input().split()
+# print(score_words(words))
+
+#Email Validation
+# def fun(s):
+#     try:
+#         username , rest = s.split("@")
+#         website , extension = rest.split(".")
+#     except ValueError:
+#         return False
+    
+#     if not (extension.isalpha() and len(extension)<=3):
+#         return False
+    
+#     if not website.isalnum():
+#         return False
+#     allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_"
+#     for ch in username:
+#         if ch not in allowed:
+#             return False
+    
+#     return s  
+    
+# def filter_mail(emails):
+#     return list(filter(fun, emails))
+
+# if __name__ == '__main__':
+#     n = int(input())
+#     emails = []
+#     for _ in range(n):
+#         emails.append(input())
+
+# filtered_emails = filter_mail(emails)
+# filtered_emails.sort()
+# print(filtered_emails)
+
+#BINARY SEARCH
+# a = [10,9,7,6,5,4,2,1]
+# a = [1,2,4,5,6,7,9,10]
+# m = 2 
+# left = 0
+# right = len(a)-1
+# res = -1
+# while left <= right:
+#     mid = int((left+right)/2)
+#     if a[left]>a[right]:
+#       if a[mid] == m:
+#           res = mid
+#           print("Yes list is desc")
+#           break
+#       elif a[mid]<m:
+#           right = mid-1
+#       else :
+#           left= mid+1
+#     else:
+#         if a[mid] == m:
+#           res = mid
+#           print("Yes list is asec")
+#           break
+#         elif a[mid]>m:
+#             right = mid-1
+#         else :
+#             left= mid+1
+# print(res)
+
+# First and last occurance 
+
+# a = [1,2,3,3,3,3,3,6,7,8,9]
+# m = 3
+
+
+# first = -1
+# last = -1
+
+# for i in range(0,2):
+#     left = 0
+#     right = len(a)-1
+#     if first == -1:
+#       while left <=right:
+#           mid = int((left+right)/2)
+#           if a[mid]==m:
+#               first = mid
+#               right = mid-1
+#           elif a[mid]>m:
+#               right = mid -1
+#           else :
+#               left = mid+1
+#     elif last == -1:
+#       while left <= right:
+#           mid = int((left+right)/2)
+#           if a[mid]==m:
+#               last = mid
+#               left = mid+1
+#           elif a[mid]>m:
+#               right = mid -1
+#           else :
+#               left = mid+1
+# print(first,last)
+
+#No of rotations
+
+# a = [4,5,6,7,0,1,2]
+# left = 0
+# right = len(a)-1
+# n = len(a)
+# while left<=right:
+#     mid = (left+right)//2
+#     next = (mid +1) % n
+#     pre = (mid + n -1) % n
+#     if a[mid]<=a[next] and a[mid]<=a[pre]:
+#         if a[mid]==a[next] and a[mid]==a[pre]:
+#             print(left)
+#         else:
+#             print(mid)
+#         break
+#     if a[left]<=a[mid]:
+#         left = mid 
+#     elif a[mid]<= a[right]:
+#         right = mid 
+
+# nums1 = [1,2]
+# nums2 = [2,4]
+# big = []
+# left = 0
+# right = 0
+# while left < len(nums1) and right<len(nums2):
+#     if nums1[left]<= nums2[right]:
+#         big.append(nums1[left])
+#         left+=1
+#     else:
+#         big.append(nums2[right])
+#         right+=1
+
+# while left < len(nums1):
+#     big.append(nums1[left])
+#     left += 1
+
+# while right < len(nums2):
+#     big.append(nums2[right])
+#     right += 1
+# print(big)
+
+#Nearly Sorted list
+# a = [70,80,90,100,40,50,60]
+# target = 40
+# left = 0 
+# right = len(a)-1
+# ans = -1
+
+# while left <= right:
+#     mid = ((left+right)//2)
+#     if a[mid] == target:
+#         ans = mid
+#         break
+#     elif left>=0 and a[mid-1]==target:
+#         ans = mid-1
+#         break
+#     elif right<=len(a)-1 and a[mid+1]==target:
+#         ans = mid+1
+#         break
+#     print(mid)
+#     if a[left]<a[mid-1]:
+#         right = mid-2
+#     else:
+#         left = mid+2
+# print(ans)
+
+# import requests
+# category_count = input().lower()
+# page =1 
+# min_price = int(input())
+# mx_price = int(input())
+# total = 0
+# while True:
+
+#     url = f"https://jsonmock.hackerrank.com/api/inventory?page={page}"
+#     response = requests.get(url)
+#     result = response.json()
+
+#     inventory_data = result["data"]
+    
+
+#     for single_inv in inventory_data:
+#         category_name = single_inv["category"].lower()
+#         ava_item = single_inv["available"]
+#         item_price = single_inv["price"]
+#         if min_price<=item_price <=mx_price and category_name==category_count:
+#             total+=1
+        
+        
+#     if page >= result["total_pages"]:
+#         break
+    
+#     page += 1
+    
+
+
+# print(total)
+
+
+# max sum of subarray of size k
+a = [1,2,3,4,5,6,7,8,9]
+x = 3
+i = 1
+j = x
+# sums = 0
+# while j<=len(a):
+#     sums = max(sums,sum(a[i:j]))
+#     i+=1
+#     j+=1
+#     print(sums)
+# print(sums)
+
+list_of_sum = [sum(a[i-1:j])]
+while j < len(a):
+    sums = list_of_sum[i-1] - a[i-1]+a[j]
+    list_of_sum.append(sums)
+    i+=1
+    j+=1
+
+print(list_of_sum)
+print(max(list_of_sum))
+    
+
+#1st negative no in window of size k
+# a =[1,-2,3,-4,5,-6,7,8,9]
+# k = 3
+# i =0
+# j = i+k
+
+# while j<=len(a):
+#     for x in a[i:j]:
+#         if x < 0:
+#             print(x)
+#             break
+#     else:
+#         print(0)
+#     i+=1
+#     j+=1
+              
+        
+
+
+
+
+        
+
+
