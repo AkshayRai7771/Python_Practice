@@ -21,8 +21,6 @@ class Customer:
         cursor.execute(query,data)
         connection.commit()
 
-
-
             
 def new_customer(x):
     connection = get_connection()
