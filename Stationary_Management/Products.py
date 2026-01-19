@@ -100,6 +100,7 @@ def add_products():
     item = Products(products_name=w,listing_date=x,product_price=y,available_quantity=z,sold_quantity=a)
     item.update_product_table(connection)
 
+
 def update_quantity():
     connection  = get_connection()
     a = input("Enter Product ID : ")

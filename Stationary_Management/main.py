@@ -21,6 +21,9 @@ def Menu(run):
         case _:
             print("Please select the valid options ")
 
+
+
+
 if __name__ == "__main__":
     cmd= input("Choose options A/B/C/D/E/Q : ")
     while(cmd!='q') :

@@ -25,5 +25,5 @@ def start_billing ():
             n = cursor.fetchone()
             update_customer(t[0],n[0],res[0])
     else : 
-        print("There is some Error ! ")
+        print("There is some Error!")
     

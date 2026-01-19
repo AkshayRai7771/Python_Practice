@@ -22,6 +22,7 @@ def check_discount_existing_customer():
             print("Customer is eligible for special discount")
         else : print("Customer is not eligible for special discount")
 
+
 def discounted_price():
     diff = date.today() - timedelta(60)
     connection  = get_connection()
