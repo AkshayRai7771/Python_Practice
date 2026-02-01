@@ -5,7 +5,7 @@ import array
 from itertools import permutations
 from collections import Counter
 from math import gcd
-import requests
+
 #Merging and sorting the lists 
 
 # a1 = [2,5,8,12,15]
@@ -622,28 +622,28 @@ import requests
 # print(total)
 
 
-# max sum of subarray of size k
-a = [1,2,3,4,5,6,7,8,9]
-x = 3
-i = 1
-j = x
-# sums = 0
-# while j<=len(a):
-#     sums = max(sums,sum(a[i:j]))
+# # max sum of subarray of size k
+# a = [1,2,3,4,5,6,7,8,9]
+# x = 3
+# i = 1
+# j = x
+# # sums = 0
+# # while j<=len(a):
+# #     sums = max(sums,sum(a[i:j]))
+# #     i+=1
+# #     j+=1
+# #     print(sums)
+# # print(sums)
+
+# list_of_sum = [sum(a[i-1:j])]
+# while j < len(a):
+#     sums = list_of_sum[i-1] - a[i-1]+a[j]
+#     list_of_sum.append(sums)
 #     i+=1
 #     j+=1
-#     print(sums)
-# print(sums)
 
-list_of_sum = [sum(a[i-1:j])]
-while j < len(a):
-    sums = list_of_sum[i-1] - a[i-1]+a[j]
-    list_of_sum.append(sums)
-    i+=1
-    j+=1
-
-print(list_of_sum)
-print(max(list_of_sum))
+# print(list_of_sum)
+# print(max(list_of_sum))
     
 
 #1st negative no in window of size k
@@ -663,7 +663,25 @@ print(max(list_of_sum))
 #     j+=1
               
         
+# class Node :
+#     def __init__(self,data):
+#         self.data = data
+#         self.next = None
 
+
+# n1 = Node(10)
+# n2 = Node(20)
+# n3 = Node(30)
+
+# n1.next = n2
+# n2.next = n3
+# head = n1
+
+# temp = head
+# while temp :
+#     print(temp.data,end="->")
+#     temp = temp.next
+# print("None")
 
 
 
