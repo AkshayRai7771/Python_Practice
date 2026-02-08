@@ -82,7 +82,6 @@ class Products:
                 cursor.execute(query)
                 connection.commit()
                 bool = True
-                print("after ",bool)
         return bool
 
         
@@ -121,17 +120,17 @@ def update_sold(w,z):
 
 
     
-# def add_new_product(connection,product):
-#     cursor = connection.cursor()
-#     query =  "INSERT INTO products_table (products_name,product_date,product_price,product_quantity) VALUES (%s,%s,%s,%s);"
-#     data =  (product['products_name'],product['product_date'],product['product_price'],product['product_quantity'])
-#     cursor.execute(query,data)
-#     connection.commit()
+def add_new_product(connection,product):
+    cursor = connection.cursor()
+    query =  "INSERT INTO products_table (products_name,product_date,product_price,product_quantity) VALUES (%s,%s,%s,%s);"
+    data =  (product['products_name'],product['product_date'],product['product_price'],product['product_quantity'])
+    cursor.execute(query,data)
+    connection.commit()
 
-# if __name__ == "__main__":
-#     connection = get_connection()
-#     w = input("Enter name of your product: ")
-#     x = input("Enter puchase date in(YY:MM:DD): ")
-#     y = input("Enter Price of product: ")
-#     z = input("Enter Quantity : ")
-#     add_new_product(connection,{'products_name':w,'product_date':x,'product_price':y,'product_quantity':z})
+if __name__ == "__main__":
+    connection = get_connection()
+    w = input("Enter name of your product: ")
+    x = input("Enter puchase date in(YY:MM:DD): ")
+    y = input("Enter Price of product: ")
+    z = input("Enter Quantity : ")
+    add_new_product(connection,{'products_name':w,'product_date':x,'product_price':y,'product_quantity':z})

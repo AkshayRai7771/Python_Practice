@@ -685,6 +685,5 @@ from math import gcd
 
 
 
-        
 
 

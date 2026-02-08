@@ -17,3 +17,6 @@ acc = BankAccount(1,5000)
 acc.depo(10000)
 
 print(acc.show_acc_no() ," account has ",acc.show_bal()," RS")
+acc.depo(10000)
+
+print(acc.show_acc_no() ," account has ",acc.show_bal()," RS")

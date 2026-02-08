@@ -1,8 +1,8 @@
 class Bikes:
-    def type(self):
+    def type(self=None):
         self.t = "Petrol"
 class TVS(Bikes):
-    def show(self,max_speed,milage,t):
+    def show(self,max_speed,milage):
         super().type() #super() is a temp obj that allows subclass to call methods of  superclass
         self.max_speed =  max_speed
         self.milage = milage

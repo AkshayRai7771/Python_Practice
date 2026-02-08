@@ -12,9 +12,11 @@ def display_products():
     return x
 
 def display_customers():
-    pass
+    connection  = get_connection()
+    cursor = connection.cursor()
+    query = "SELECT * FROM sm_db.customer_info;"
+    cursor.execute(query)
+    x = cursor.fetchall()
+    return x
 
-
-# if __name__ =="__main__":
-#     ask()
 

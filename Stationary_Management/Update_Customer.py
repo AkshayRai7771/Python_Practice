@@ -30,7 +30,7 @@ def new_customer(x):
     buyer = Customer(y,z,customer_name=w,email_address=x)
     buyer.add_new_customer(connection)
 
-def update_customer(total,num,id):
+def update_existing_customer(total,num,id):
     connection = get_connection()
     a = int(input("Enter amount :"))
     y = a + total
@@ -51,7 +51,7 @@ def update_customer(total,num,id):
 #     cursor.execute(query,data)
 #     connection.commit()
 
-# # emailadd = input("Enter Email Address of Customer : ")
+# emailadd = input("Enter Email Address of Customer : ")
 
 # if __name__ == "__main__":
 #     connection = get_connection()
@@ -59,4 +59,4 @@ def update_customer(total,num,id):
 #     x = input("Enter Email address of Customer: ")
 #     y = input("Enter total amount purchased : ")
 #     z = 1
-#     update_customer(connection,{'customer_name':w,'email_address':x,'total_amount':y,'no_of_purchase':z})
+#     update_existing_customer(connection,{'customer_name':w,'email_address':x,'total_amount':y,'no_of_purchase':z})

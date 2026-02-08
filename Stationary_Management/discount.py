@@ -1,26 +1,29 @@
 from SQL_connx import get_connection
 from datetime import date, timedelta
+from validation import is_valid_email
 
 def check_discount_existing_customer():
     connection  = get_connection()
     email = input("Enter Email of Customer : ")
-    cursor = connection.cursor()
-    query =  f"SELECT customer_id FROM sm_db.customer_info where email_address = '{email}';"
-    cursor.execute(query)
-    res = cursor.fetchone()
-    if res is None:
-        print("Customer not found")
-    else : 
-        query =  f"SELECT total_amount FROM sm_db.customer_info where customer_id = '{res[0]}';"
+    valid = is_valid_email(email)
+    if valid == True:
+        cursor = connection.cursor()
+        query =  f"SELECT customer_id FROM sm_db.customer_info where email_address = '{email}';"
         cursor.execute(query)
-        t = cursor.fetchone()
+        res = cursor.fetchone()
+        if res is None:
+            print("Customer not found")
+        else : 
+            query =  f"SELECT total_amount FROM sm_db.customer_info where customer_id = '{res[0]}';"
+            cursor.execute(query)
+            t = cursor.fetchone()
 
-        query =  f"SELECT no_of_purchase FROM sm_db.customer_info where customer_id = '{res[0]}';"
-        cursor.execute(query)
-        n = cursor.fetchone()
-        if t[0]>500 or n[0]>5:
-            print("Customer is eligible for special discount")
-        else : print("Customer is not eligible for special discount")
+            query =  f"SELECT no_of_purchase FROM sm_db.customer_info where customer_id = '{res[0]}';"
+            cursor.execute(query)
+            n = cursor.fetchone()
+            if t[0]>500 or n[0]>5:
+                print("Customer is eligible for special discount")
+            else : print("Customer is not eligible for special discount")
 
 
 def discounted_price():
